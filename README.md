@@ -27,3 +27,13 @@ A instalação descrita acima não habilita todos os modulos do yara por padrão
 Em seguida a instalação do pacote yara-python deve ser feita com o seguinte comando:
 
 * pip3 install --global-option="build" --global-option="--enable-cuckoo" --global-option="--enable-magic" --global-option="--enable-dotnet" --global-option="--enable-dex" --global-option="--enable-dex" --global-option="--enable-macho" --global-option="--enable-profiling" yara-python
+
+# Usage
+
+O deepHash atualmente busca arquivos de forma recursiva em um diretório para gerar um hash do arquivo encontrado e validar se o arquivo possuí alguma assinatura maliciosa utilizando rules yara para detectar essas assinaturas.
+
+A execução do deepHash pode ser des três formas:
+
+- Sem passagem de argumentos
+
+* python3 deepHash.py
