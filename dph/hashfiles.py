@@ -6,6 +6,7 @@ import yara
 import argparse
 
 rules = yara.compile(filepath=osinfo.which_path() + "/yara-rules/rules.yar")
+dir_format = '\\' if (osinfo.which_os() == "Windows") else '/'
 
 def run():
     parser = argparse.ArgumentParser()
@@ -28,13 +29,13 @@ def deep_hash(directory, typehash=""):
     files = osinfo.ls_dir(directory) if (osinfo.is_dir(directory)) else [directory]
 
     for file in files:
-        if (osinfo.is_file(directory + "/" + file)):
+        if (osinfo.is_file(directory + dir_format + file)):
             (hashFile, matches) = calculate_hash(directory + "/" + file, typehash)
-            print_info(directory + "/" + file, hashFile, matches)
+            print_info(directory + dir_format + file, hashFile, matches)
             collect()
 
-        if (osinfo.is_dir(directory + "/" + file)):
-            deep_hash(directory + "/" + file, typehash=typehash)
+        if (osinfo.is_dir(directory + dir_format + file)):
+            deep_hash(directory + dir_format + file, typehash=typehash)
         sleep(0.5)
 
 def calculate_hash(filename, typehash):
