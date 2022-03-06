@@ -5,7 +5,7 @@ Este projeto tem o objetivo de identificar assinaturas maliciosas com a utiliza�
 
 # Requirements
 
-O deepHash pode ser executado em sistemas Windows e Linux. O projeto possui dos seguintes pacotes python:
+O deepHash pode ser executado em sistemas Windows e Linux. O projeto depende dos seguintes pacotes python:
 
 * yara-python
 * pycryptodome
@@ -17,3 +17,13 @@ Com o python versão 3 já instalado no sistema operacional basta executar o seg
 ou
 
 * pip3 install -r requirements.txt
+
+A instalação descrita acima não habilita todos os modulos do yara por padrão. Os modulos do yara podem ser utilizados na construção de rules, caso o modulo não esteja disponível podera ocorrer uma exceção de SintaxeError no momento da compilação da rule yara. Para habilitar todas as funcionalidades disponiveis do yara é preciso instalar as seguintes dependências, caso as libs não estejam disponíveis: 
+
+* libjansson-dev
+* libssl-dev
+* libmagic-dev
+
+Em seguida a instalação do pacote yara-python deve ser feita com o seguinte comando:
+
+* pip3 install --global-option="build" --global-option="--enable-cuckoo" --global-option="--enable-magic" --global-option="--enable-dotnet" --global-option="--enable-dex" --global-option="--enable-dex" --global-option="--enable-macho" --global-option="--enable-profiling" yara-python
