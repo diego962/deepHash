@@ -34,6 +34,6 @@ O deepHash atualmente busca arquivos de forma recursiva em um diretório para ge
 
 A execução do deepHash pode ser des três formas:
 
-- Sem passagem de argumentos
+** Sem passagem de argumentos
 
 * python3 deepHash.py
