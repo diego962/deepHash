@@ -5,7 +5,7 @@ from time import sleep
 import yara
 import argparse
 
-rules = yara.compile(filepath="/home/diego/deepHash/yara-rules/pdf.yar")
+rules = yara.compile(filepath=osinfo.which_path() + "/yara-rules/rules.yar")
 
 def run():
     parser = argparse.ArgumentParser()
