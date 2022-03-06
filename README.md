@@ -34,6 +34,16 @@ O deepHash atualmente busca arquivos de forma recursiva em um diretório para ge
 
 A execução do deepHash pode ser des três formas:
 
-** Sem passagem de argumentos
+Sem passagem de argumentos
 
 * python3 deepHash.py
+
+Informando qual o diretório onde a busca deve ser realizar
+
+* python3 deepHash.py --dir DIR_ABSOLUTE_PATH
+
+Informando qual o tipo hash que deve ser gerado. Atualmente os tipos suportados são: MD5, SHA256 e SHA512
+
+* python3 deepHash.py --type TYPE_HASH
+
+Também é possível utilizar os parâmetros --dir e --type simultaneamente
