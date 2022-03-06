@@ -3,7 +3,7 @@
 Este projeto tem o objetivo de identificar assinaturas maliciosas com a utilização de yara rules em sistemas Linux e Windows. O projeto desenvolvido na linguagem python versão 3.
 
 
-#Requirements
+# Requirements
 
 O deepHash pode ser executado em sistemas Windows e Linux. O projeto possui dos seguintes pacotes python:
 
