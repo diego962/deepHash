@@ -56,5 +56,5 @@ def calculate_hash(filename, typehash):
 
 def print_info(name, hash, match):
     print("---------------------------------------------")
-    print("HASH:\t{0}\nFILE:\t{1}\nTYPE:\t{2}\n".format(hash, name, match))
+    print("HASH:\t{0}\nFILE:\t{1}\nYARA RULES:\t{2}\n".format(hash, name, match))
     print("---------------------------------------------")
