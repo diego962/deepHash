@@ -1,11 +1,11 @@
 # Project
 
-Este projeto tem o objetivo de identificar assinaturas maliciosas com a utilização de yara rules em sistemas Linux e Windows. O projeto desenvolvido na linguagem python versão 3.
+Este programa tem o objetivo de identificar assinaturas maliciosas com a utilização de yara rules em sistemas Linux e Windows. Atualmente o programa está sendo desenvolvido na linguagem python versão 3.
 
 
 # Requirements
 
-O deepHash pode ser executado em sistemas Windows e Linux. O projeto depende dos seguintes pacotes python:
+O deepHash pode ser executado em sistemas Windows e Linux. O programa depende dos seguintes modulos python:
 
 * yara-python
 * pycryptodome
@@ -18,7 +18,7 @@ ou
 
 * pip3 install -r requirements.txt
 
-A instalação descrita acima não habilita todos os modulos do yara por padrão. Os modulos do yara podem ser utilizados na construção de rules, caso o modulo não esteja disponível podera ocorrer uma exceção de SintaxeError no momento da compilação da rule yara. Para habilitar todas as funcionalidades disponiveis do yara é preciso instalar as seguintes dependências, caso as libs não estejam disponíveis: 
+A instalação descrita acima não habilita todos os modulos do yara por padrão. Os modulos do yara podem ser utilizados na construção de rules, caso algum modulo do yara-python não esteja disponível podera ocorrer uma exceção de SintaxeError no momento da compilação da rule yara. Para habilitar todas as funcionalidades disponiveis do yara-python é preciso instalar as seguintes dependências, caso as libs não estejam disponíveis: 
 
 * libjansson-dev
 * libssl-dev
