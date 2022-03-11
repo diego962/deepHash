@@ -32,7 +32,7 @@ Em seguida a instalação do pacote yara-python deve ser feita com o seguinte co
 
 O deepHash atualmente busca arquivos de forma recursiva em um diretório para gerar um hash do arquivo encontrado e validar se o arquivo possuí alguma assinatura maliciosa utilizando rules yara para detectar essas assinaturas.
 
-A execução do deepHash pode ser des três formas:
+A execução do deepHash pode ser realizadas das seguintes formas:
 
 Sem passagem de argumentos
 
@@ -46,4 +46,8 @@ Informando qual o tipo hash que deve ser gerado. Atualmente os tipos suportados 
 
 * python3 deepHash.py --type TYPE_HASH
 
-Também é possível utilizar os parâmetros --dir e --type simultaneamente
+Informando o nome do arquivo a ser analisado:
+
+* python3 deepHash.py --file DIR_ABSOLUTE_PATH_FILE
+
+Também é possível utilizar os parâmetros --dir e --type ou --file e --type simultaneamente
