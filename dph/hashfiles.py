@@ -21,7 +21,7 @@ def run():
 
     if (arguments.filename):
         (hashFile, matches) = calculate_hash(arguments.filename, typeHash)
-        print_info(hashInfo, arguments.filename, matches)
+        print_info(hashFile, arguments.filename, matches)
     else:
         deep_hash(directory, typehash=typeHash)
 
