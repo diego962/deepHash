@@ -7,6 +7,7 @@ objectHashs = {
     "SHA512": Crypto.Hash.SHA512
 }
 
+
 def get_object_hash(typeHash="MD5"):
 
     return objectHashs[typeHash].new()

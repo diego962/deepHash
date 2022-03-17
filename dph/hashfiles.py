@@ -1,12 +1,15 @@
 from config import osinfo
 from config import hashs
+from fileinfo import is_malware
 from gc import collect
 from time import sleep
 import yara
 import argparse
 
+
 rules = yara.compile(filepath=osinfo.which_path() + "/yara-rules/rules.yar")
 dir_format = '\\' if (osinfo.which_os() == "Windows") else '/'
+
 
 def run():
     parser = argparse.ArgumentParser()
@@ -16,31 +19,35 @@ def run():
 
     arguments = parser.parse_args()
 
-    typeHash = arguments.type if (arguments.type) else "MD5"
+    typeHash = arguments.type.upper() if (arguments.type) else "MD5"
     directory = arguments.dir if (arguments.dir) else (osinfo.which_path())
 
     if (arguments.filename):
-        (hashFile, matches) = calculate_hash(arguments.filename, typeHash)
-        print_info(hashFile, arguments.filename, matches)
+        (hash_file, matches, is_malicious) = calculate_hash(arguments.filename, typeHash)
+        print_info(hash_file, arguments.filename, matches, is_malicious)
     else:
         deep_hash(directory, typehash=typeHash)
+
 
 def deep_hash(directory, typehash=""):
     files = osinfo.ls_dir(directory) if (osinfo.is_dir(directory)) else [directory]
 
     for file in files:
         if (osinfo.is_file(directory + dir_format + file)):
-            (hashFile, matches) = calculate_hash(directory + "/" + file, typehash)
-            print_info(directory + dir_format + file, hashFile, matches)
+            (hash_file, matches, is_malicious) = calculate_hash(directory + "/" + file, typehash)
+            print_info(directory + dir_format + file, hash_file, matches, is_malicious)
             collect()
 
         if (osinfo.is_dir(directory + dir_format + file)):
             deep_hash(directory + dir_format + file, typehash=typehash)
         sleep(0.5)
 
+
 def calculate_hash(filename, typehash):
     hashInfo = hashs.get_object_hash(typehash)
+    is_malicious = is_malware(filename)
     matches = None
+
     with open(filename, 'rb') as message:
         matches = rules.match(data=message.read())
 
@@ -52,9 +59,13 @@ def calculate_hash(filename, typehash):
             buf = message.read(16 * 1024)
     hashFile = hashInfo.hexdigest()
     hashInfo = None
-    return (hashFile, matches)
+    return (hashFile, matches, is_malicious)
 
-def print_info(name, hash, match):
+
+def print_info(name, hash, match, is_malicious):
     print("---------------------------------------------")
-    print("HASH:\t{0}\nFILE:\t{1}\nYARA RULES:\t{2}\n".format(hash, name, match))
+    print("HASH:\t{0}\n \
+            FILE:\t{1}\n \
+            YARA RULES:\t{2}\n \
+            IS MALWRE:\t{3}\n".format(hash, name, match, is_malicious))
     print("---------------------------------------------")
