@@ -1,6 +1,6 @@
 from config import osinfo
 from config import hashs
-from fileinfo import is_malware
+from .fileinfo import is_malware
 from gc import collect
 from time import sleep
 import yara
@@ -64,8 +64,5 @@ def calculate_hash(filename, typehash):
 
 def print_info(name, hash, match, is_malicious):
     print("---------------------------------------------")
-    print("HASH:\t{0}\n \
-            FILE:\t{1}\n \
-            YARA RULES:\t{2}\n \
-            IS MALWRE:\t{3}\n".format(hash, name, match, is_malicious))
+    print("HASH:\t{0}\nFILE:\t{1}\nYARA RULES:\t{2}\nIS MALWRE:\t{3}\n".format(hash, name, match, is_malicious))
     print("---------------------------------------------")

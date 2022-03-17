@@ -13,14 +13,17 @@ def exists_invalid_section(file):
 
 
 def is_malware(filename):
-    file = pefile.PE(filename)
-    if exists_invalid_section(file):
-        return True
-    elif file.OPTIONAL_HEADER.SizeOfInitializedData == 0:
-        return True
-    elif (file.OPTIONAL_HEADER.DllCharacteristic == 0
-            and file.OPTIONAL_HEADER.MajorImageVersion == 0
-            and file.OPTIONAL_HEADER.CheckSum == 0):
-        return True
-    else:
+    try:
+        file = pefile.PE(filename)
+        if exists_invalid_section(file):
+            return True
+        elif file.OPTIONAL_HEADER.SizeOfInitializedData == 0:
+            return True
+        elif (file.OPTIONAL_HEADER.DllCharacteristics == 0
+                and file.OPTIONAL_HEADER.MajorImageVersion == 0
+                and file.OPTIONAL_HEADER.CheckSum == 0):
+            return True
+        else:
+            return False
+    except pefile.PEFormatError as e:
         return False
