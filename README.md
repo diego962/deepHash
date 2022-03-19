@@ -9,6 +9,7 @@ O deepHash pode ser executado em sistemas Windows e Linux. O programa depende do
 
 * yara-python
 * pycryptodome
+* pefile
 
 Com o python versão 3 já instalado no sistema operacional basta executar o seguinte comando para instalar as dependências :
 
