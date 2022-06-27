@@ -1,4 +1,4 @@
-# Projeto
+# deepHash
 
 Este programa tem o objetivo de identificar assinaturas maliciosas com a utilização de yara rules em sistemas Linux e Windows. Atualmente o programa está sendo desenvolvido na linguagem python versão 3.
 
