@@ -13,13 +13,17 @@ O deepHash pode ser executado em sistemas Windows e Linux. O programa depende do
 
 Com o python versão 3 já instalado no sistema operacional basta executar o seguinte comando para instalar as dependências :
 
-* python3 -m pip install -r requirements.txt
+* python3 -m pip install .
 
 ou
 
-* pip3 install -r requirements.txt
+* pip3 install -r .
 
-A instalação descrita acima não habilita todos os modulos do yara por padrão. Os modulos do yara podem ser utilizados na construção de rules, caso algum modulo do yara-python não esteja disponível podera ocorrer uma exceção de SintaxeError no momento da compilação da rule yara. Para habilitar todas as funcionalidades disponiveis do yara-python é preciso instalar as seguintes dependências, caso as libs não estejam disponíveis: 
+ou 
+
+* make install
+
+A instalação descrita acima não habilita todos os modulos do yara por padrão. Os modulos do yara podem ser utilizados na construção de rules. Caso algum modulo do yara-python não esteja disponível poderá ocorrer uma exceção de SintaxeError no momento da compilação da rule yara. Para habilitar todas as funcionalidades disponíveis do yara-python é preciso instalar as seguintes dependências, caso as libs não estejam disponíveis: 
 
 * libjansson-dev
 * libssl-dev
@@ -31,7 +35,7 @@ Em seguida a instalação do pacote yara-python deve ser feita com o seguinte co
 
 # Uso
 
-O deepHash atualmente busca arquivos de forma recursiva em um diretório para gerar um hash do arquivo encontrado e validar se o arquivo possuí alguma assinatura maliciosa utilizando rules yara para detectar essas assinaturas.
+O deepHash atualmente busca arquivos de forma recursiva em um diretório para gerar um hash do arquivo encontrado e validar se o arquivo possuí alguma assinatura maliciosa.
 
 A execução do deepHash pode ser realizadas das seguintes formas:
 
@@ -39,11 +43,11 @@ Sem passagem de argumentos
 
 * python3 deepHash.py
 
-Informando qual o diretório onde a busca deve ser realizar
+Informando qual o diretório onde a busca deve ser realizada
 
 * python3 deepHash.py --dir DIR_ABSOLUTE_PATH
 
-Informando qual o tipo hash que deve ser gerado. Atualmente os tipos suportados são: MD5, SHA256 e SHA512
+Informando qual o tipo de hash que deve ser gerado. Atualmente os tipos suportados são: MD5, SHA256 e SHA512
 
 * python3 deepHash.py --type TYPE_HASH
 
