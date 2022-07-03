@@ -1,6 +1,6 @@
-from .config import osinfo
-from .config import hashs
-from .fileinfo import is_malware
+from dph.config import osinfo
+from dph.config import hashs
+from dph.fileinfo import is_malware
 from gc import collect
 from time import sleep
 import yara

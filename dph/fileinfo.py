@@ -1,5 +1,5 @@
 import pefile
-from config.section import SectionName
+from dph.config.section import SectionName
 
 
 def exists_invalid_section(file):
