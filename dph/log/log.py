@@ -15,13 +15,20 @@ fmt = logging.Formatter(
 
 
 def get_logger(logfile="dph.log"):
+    dirlog = None
+
     try:
-        dirlog = mkdir(
+        mkdir(
             PATH_LOG + 
             osinfo.which_dir_format() + 
             "dph" + 
             osinfo.which_dir_format()
         )
+
+        dirlog = PATH_LOG + \
+                osinfo.which_dir_format() + \
+                 "dph" + \
+                osinfo.which_dir_format() 
     except FileExistsError as e:
         dirlog = PATH_LOG + \
                 osinfo.which_dir_format() + \
