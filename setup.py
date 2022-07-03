@@ -26,10 +26,10 @@ setup(
     author="Diego Lopes",
     packages=find_packages(),
     package_data={
-        "yara-rules":["*.yar"],
-        "yara-rules.malware":["*.yar"],
-        "yara-rules.pdf":["*.yar"],
-        "yara-rules.malware.opblockbuster":["*.yara"]
+        "dph.yara-rules":["*.yar"],
+        "dph.yara-rules.malware":["*.yar"],
+        "dph.yara-rules.pdf":["*.yar"],
+        "dph.yara-rules.malware.opblockbuster":["*.yara"]
     },
     entry_points={
         "console_scripts":[
