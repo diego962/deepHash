@@ -1,11 +1,13 @@
 from dph.config import osinfo
 from dph.config import hashs
+from dph.log import log
 from dph.fileinfo import is_malware
 from gc import collect
 from time import sleep
 import yara
 import argparse
 
+log = log.get_logger()
 
 rules = yara.compile(filepath=osinfo.which_dirname(__file__) + "/yara-rules/rules.yar")
 dir_format = '\\' if (osinfo.which_os() == "Windows") else '/'
@@ -66,3 +68,11 @@ def print_info(name, hash, match, is_malicious):
     print("---------------------------------------------")
     print("HASH:\t{0}\nFILE:\t{1}\nYARA RULES:\t{2}\nIS MALWRE:\t{3}\n".format(hash, name, match, is_malicious))
     print("---------------------------------------------")
+
+    log.setLevel("INFO")
+    log.info("""
+    ---------------------------------------------
+    \tHASH:\t{0}\n\tFILE:\t{1}\n\tYARA RULES:\t{2}\n\tIS MALWRE:\t{3}\n
+    ---------------------------------------------
+    """.format(hash, name, match, is_malicious)
+    )

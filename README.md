@@ -17,7 +17,7 @@ Com o python versão 3 já instalado no sistema operacional basta executar o seg
 
 ou
 
-* pip3 install -r .
+* pip3 install .
 
 ou 
 
