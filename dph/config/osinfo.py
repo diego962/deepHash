@@ -5,6 +5,8 @@ import os
 def which_os():
     return system()
 
+def which_dirname(filename):
+    return os.path.dirname(filename)
 
 def which_path():
     return os.getcwd()

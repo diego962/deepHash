@@ -1,5 +1,5 @@
-from config import osinfo
-from config import hashs
+from .config import osinfo
+from .config import hashs
 from .fileinfo import is_malware
 from gc import collect
 from time import sleep
@@ -7,7 +7,7 @@ import yara
 import argparse
 
 
-rules = yara.compile(filepath=osinfo.which_path() + "/yara-rules/rules.yar")
+rules = yara.compile(filepath=osinfo.which_dirname(__file__) + "/yara-rules/rules.yar")
 dir_format = '\\' if (osinfo.which_os() == "Windows") else '/'
 
 
