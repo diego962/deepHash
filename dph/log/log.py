@@ -5,7 +5,7 @@ from os import mkdir
 
 PATH_LOG = osinfo.get_env('TEMP') + '\\dph'\
            if osinfo.which_os() == 'Windows' \
-           else '/var/log/dph'
+           else osinfo.get_env('HOME') + '/dph'
 LOG_LEVEL = osinfo.get_env("LOG_LEVEL", "INFO").upper()
 
 log = logging.getLogger("DEEPHASH")
