@@ -1,5 +1,5 @@
-from platform import system
 import os
+from platform import system
 
 
 def which_os():
@@ -7,7 +7,7 @@ def which_os():
 
 
 def which_dirname(filename):
-    return os.path.dirname(filename)
+    return os.path.dirname(os.path.dirname(filename))
 
 
 def which_path():
@@ -15,7 +15,7 @@ def which_path():
 
 
 def which_dir_format():
-    return '\\' if (which_os() == "Windows") else '/'
+    return "\\" if (which_os() == "Windows") else "/"
 
 
 def is_file(path):

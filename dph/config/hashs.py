@@ -1,10 +1,9 @@
-import Crypto
-from Crypto.Hash import *
+from Crypto.Hash import MD5, SHA256, SHA512
 
 objectHashs = {
-    "MD5": Crypto.Hash.MD5,
-    "SHA256": Crypto.Hash.SHA256,
-    "SHA512": Crypto.Hash.SHA512
+    "MD5": MD5,
+    "SHA256": SHA256,
+    "SHA512": SHA512,
 }
 
 

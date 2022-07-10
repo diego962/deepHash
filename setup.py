@@ -1,6 +1,7 @@
-from importlib.metadata import entry_points
-from setuptools import setup, find_packages
 import os
+
+from setuptools import find_packages, setup
+
 
 def read(*paths):
     rootpah = os.path.dirname(__file__)
@@ -12,29 +13,26 @@ def read(*paths):
 def read_requirements(path):
     return [
         line.strip()
-        for line in read(path).split('\n')
+        for line in read(path).split("\n")
         if not line.startswith(("#", "git+", '"'))
     ]
+
 
 setup(
     name="deepHash",
     version="0.1.0",
     description="""
-        O deepHash faz o calculo de hash de arquivos em sistemas Linux e Windows 
-        e verifica se o arquivo é malicioso usando yara rules 
+        O deepHash faz o calculo de hash de arquivos em sistemas Linux e
+        Windows e verifica se o arquivo é malicioso usando yara rules
     """,
     author="Diego Lopes",
     packages=find_packages(),
     package_data={
-        "dph.yara-rules":["*.yar"],
-        "dph.yara-rules.malware":["*.yar"],
-        "dph.yara-rules.pdf":["*.yar"],
-        "dph.yara-rules.malware.opblockbuster":["*.yara"]
+        "dph.yara-rules": ["*.yar"],
+        "dph.yara-rules.malware": ["*.yar"],
+        "dph.yara-rules.pdf": ["*.yar"],
+        "dph.yara-rules.malware.opblockbuster": ["*.yara"],
     },
-    entry_points={
-        "console_scripts":[
-            "dph = dph.__main__:main"
-        ]
-    },
+    entry_points={"console_scripts": ["dph = dph.__main__:main"]},
     install_requires=read_requirements("requirements.txt"),
 )
