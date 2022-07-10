@@ -41,18 +41,18 @@ A execução do deepHash pode ser realizadas das seguintes formas:
 
 Sem passagem de argumentos
 
-* python3 deepHash.py
+* dph
 
 Informando qual o diretório onde a busca deve ser realizada
 
-* python3 deepHash.py --dir DIR_ABSOLUTE_PATH
+* dph --dir DIR_ABSOLUTE_PATH
 
 Informando qual o tipo de hash que deve ser gerado. Atualmente os tipos suportados são: MD5, SHA256 e SHA512
 
-* python3 deepHash.py --type TYPE_HASH
+* dph --type TYPE_HASH
 
 Informando o nome do arquivo a ser analisado:
 
-* python3 deepHash.py --file DIR_ABSOLUTE_PATH_FILE
+* dph --file DIR_ABSOLUTE_PATH_FILE
 
 Também é possível utilizar os parâmetros --dir e --type ou --file e --type simultaneamente
