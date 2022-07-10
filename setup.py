@@ -20,7 +20,7 @@ def read_requirements(path):
 
 setup(
     name="deepHash",
-    version="0.1.0",
+    version="0.3.0",
     description="""
         O deepHash faz o calculo de hash de arquivos em sistemas Linux e
         Windows e verifica se o arquivo é malicioso usando yara rules
